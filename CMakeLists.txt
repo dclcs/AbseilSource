@@ -16,3 +16,5 @@ add_executable(hello_world hello_world.cc
 
 # Declare dependency on the absl::strings library
 target_link_libraries(hello_world absl::strings absl::flat_hash_map absl::flat_hash_set)
+add_executable(nonexceptExample cases/NoexpectCases.cpp)
+add_executable(explicitCases cases/ExplicitCases.cpp)
