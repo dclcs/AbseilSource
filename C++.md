@@ -54,3 +54,32 @@ Circle C = A;
 - 第三种是这个算隐式调用了拷贝构造函数 
 
 这里如果所有的构造函数加上explicit就会报错
+
+### std::is_class && std::is_empty
+- std::is_class
+  - 判断T是否是non-union的类型。
+- std::is_empty
+  - If T is an empty type (that is, a non-union class 
+  type with no non-static data members other than bit-fields of size 0, 
+  no virtual functions, no virtual base classes, and no non-empty base classes), 
+  provides the member constant value equal to true. 
+  For any other type, value is false.
+  - If T is an incomplete non-union class type, the behavior is undefined.
+  - If the program adds specializations for std::is_empty or std::is_empty_v, 
+  the behavior is undefined.
+- std::is_final
+  - If T is a final class, provides the member constant value equal true.
+    For any other type, value is false.
+  - If T is an incomplete class type, the behavior is undefined.
+  - If the program adds specializations for std::is_final 
+  or std::is_final_v(since C++17), the behavior is undefined.
+
+- std::is_base_of
+  - If Derived is derived from Base or if both are the same non-union class (in both cases ignoring cv-qualification), provides the member constant value equal to true. Otherwise value is false.
+  - If both Base and Derived are non-union class types, and they are not the same type (ignoring cv-qualification), Derived should be a complete type; otherwise the behavior is undefined. 
+  - If the program adds specializations for std::is_base_of or std::is_base_of_v(since C++17), the behavior is undefined.
+
+
+
+
+
